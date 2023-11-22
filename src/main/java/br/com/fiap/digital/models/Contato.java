@@ -1,12 +1,9 @@
 package br.com.fiap.digital.models;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
@@ -20,18 +17,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "TB_VLEARN_ALUNO")
-@SequenceGenerator(name = "vlearn_aluno", sequenceName = "SQ_TB_VLEARN_ALUNO", allocationSize = 1)
-public class Aluno {
+@Table(name = "TB_DIGITAL_CONTATO")
+@SequenceGenerator(name = "digital_contato", sequenceName = "SQ_TB_DIGITAL_CONTATO", allocationSize = 1)
+public class Contato {
 	@Id
-	@GeneratedValue(generator = "vlearn_aluno", strategy = GenerationType.IDENTITY)
+	@GeneratedValue(generator = "digital_contato", strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotNull
 	private String nome;
 	@NotNull
-	private String tipo_pcd;
-	@OneToOne(cascade = CascadeType.MERGE)
-	private Login login;
-	@ManyToOne(cascade = CascadeType.MERGE)
-	private Telefone telefone;
+	private String nr_telefone;
 }

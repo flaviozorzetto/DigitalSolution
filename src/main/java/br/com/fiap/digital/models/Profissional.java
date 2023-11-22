@@ -20,24 +20,26 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "TB_VLEARN_PROFESSOR")
-@SequenceGenerator(name = "vlearn_professor", sequenceName = "SQ_TB_VLEARN_PROFESSOR", allocationSize = 1)
-public class Professor {
+@Table(name = "TB_DIGITAL_PROFISSIONAL")
+@SequenceGenerator(name = "digital_profissional", sequenceName = "SQ_TB_DIGITAL_PROFISSIONAL", allocationSize = 1)
+public class Profissional {
 	@Id
-	@GeneratedValue(generator = "vlearn_professor", strategy = GenerationType.IDENTITY)
+	@GeneratedValue(generator = "digital_profissional", strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotNull
-	private String nome;
+	public String Nome;
 	@NotNull
-	private String formacao;
+	public String Sobrenome;
 	@NotNull
-	private String experiencia;
+	public String Especialidade;
 	@NotNull
-	private String idiomas;
+	public String Crm;
 	@NotNull
-	private String status;
+	public String Cpf;
 	@OneToOne(cascade = CascadeType.MERGE)
 	private Login login;
+	@OneToOne(cascade = CascadeType.MERGE)
+	private Endereco endereco;
 	@ManyToOne(cascade = CascadeType.MERGE)
-	private Telefone telefone;
+	private Contato contato;
 }

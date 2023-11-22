@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
@@ -19,22 +20,24 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "TB_VLEARN_CURSO")
-@SequenceGenerator(name = "vlearn_curso", sequenceName = "SQ_TB_VLEARN_CURSO", allocationSize = 1)
-public class Curso {
+@Table(name = "TB_DIGITAL_USUARIO")
+@SequenceGenerator(name = "digital_usuario", sequenceName = "SQ_TB_DIGITAL_USUARIO", allocationSize = 1)
+public class Usuario {
 	@Id
-	@GeneratedValue(generator = "vlearn_curso", strategy = GenerationType.IDENTITY)
+	@GeneratedValue(generator = "digital_usuario", strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotNull
 	private String nome;
 	@NotNull
-	private String descricao;
+	private String sobrenome;
 	@NotNull
-	private Double preco;
+	private double peso;
 	@NotNull
-	private String autor;
-	@NotNull
-	private String duracao;
+	private double altura;
+	@OneToOne(cascade = CascadeType.MERGE)
+	private Login login;
+	@OneToOne(cascade = CascadeType.MERGE)
+	private Endereco endereco;
 	@ManyToOne(cascade = CascadeType.MERGE)
-	private Professor professor;
+	private Contato contato;
 }

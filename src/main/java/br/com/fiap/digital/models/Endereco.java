@@ -17,16 +17,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "TB_VLEARN_TELEFONE")
-@SequenceGenerator(name = "vlearn_telefone", sequenceName = "SQ_TB_VLEARN_TELEFONE", allocationSize = 1)
-public class Telefone {
+@Table(name = "TB_DIGITAL_ENDERECO")
+@SequenceGenerator(name = "digital_endereco", sequenceName = "SQ_TB_DIGITAL_ENDERECO", allocationSize = 1)
+public class Endereco {
 	@Id
-	@GeneratedValue(generator = "vlearn_telefone", strategy = GenerationType.IDENTITY)
+	@GeneratedValue(generator = "digital_endereco", strategy = GenerationType.IDENTITY)
 	private Long id;
 	@NotNull
-	private String ddd;
+	public String Logradouro;
 	@NotNull
-	private int ddi;
+	public int Numero;
 	@NotNull
-	private String nr_telefone;
+	public String Bairro;
+	@NotNull
+	public String Cidade;
+	@NotNull
+	public String Estado;
+	@NotNull
+	public String Cep;
 }
