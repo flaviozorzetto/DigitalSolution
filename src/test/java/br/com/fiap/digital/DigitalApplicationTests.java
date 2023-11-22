@@ -1,4 +1,4 @@
-package br.com.fiap.vlearn;
+package br.com.fiap.digital;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
